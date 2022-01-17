@@ -1,4 +1,4 @@
-# Using Time Series Analysis To Predict Cryptocurrency Price
+# Using Time Series Analysis To Predict Cryptocurrency Price Changes
 
 ## Table of Contents
 
@@ -18,12 +18,14 @@
 
 ### Project Goal
 
-* To use time series analysis to analyze cryptocurrency prices and develop a model that can predict changes in prices
+* To use time series analysis to analyze cryptocurrency prices and develop a model that can predict changes in prices.
 
 ### Project Description
 
 Cryptocurrency is a massive and growing industry that provides incredible opportunity for profit but also comes with risk of loss due to its volatility. 
 With models that can identify trends and predict upcoming price changes, these risks can be mitigated.
+
+The cryptocurrency used in this analysis are HOLO USD (HOT1-USD) and NEM USD (XEM-USD). Both have a little over $1B market capitalization at the time of this report.
 
 ### Initial Hypotheses/Questions
 
@@ -90,7 +92,7 @@ With models that can identify trends and predict upcoming price changes, these r
  * With more time and resources ...
 
 ### To Recreate This Project:
-* You will need download the data from Yahoo Finance
+* You will need to download the data from Yahoo Finance
 * Download the wrangle.py file to your working directory
 * Download the ??? notebook to your working directory
 * Read this README.md
