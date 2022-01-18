@@ -25,7 +25,7 @@
 Cryptocurrency is a massive and growing industry that provides incredible opportunity for profit but also comes with risk of loss due to its volatility. 
 With models that can identify trends and predict upcoming price changes, these risks can be mitigated.
 
-The cryptocurrency used in this analysis are HOLO USD (HOT1-USD) and NEM USD (XEM-USD). Both have a little over $1B market capitalization at the time of this report.
+The cryptocurrency used in this analysis are HOLO (HOT1-USD) and NEM (XEM-USD). Both have a little over $1B market capitalization at the time of this report. The close price is what I will be trying to predict.
 
 ### Initial Hypotheses/Questions
 
@@ -33,13 +33,16 @@ The cryptocurrency used in this analysis are HOLO USD (HOT1-USD) and NEM USD (XE
 
 * Does cryptocurrency have a seasonality component?
 
-* Are there any months or days of the week we can identify as having significantly higher or lower trade volume? 
+* Are there any months we can identify as having significantly higher or lower trade volume? 
+
+* Are there any days of the week we can identify as having significantly higher or lower trade volume? 
 
 
 ## Acquisition
 
-* Download data from Yahoo Finance
-* Create function for pulling in the data
+* Use YFinance to import data (may have to pip install yfinance)
+* Save data to csv
+* Create function for pulling in and caching the data
 * Create wrangle.py to save these functions for importing
 * Test functions
 * Get familiar with data
@@ -71,7 +74,8 @@ The cryptocurrency used in this analysis are HOLO USD (HOT1-USD) and NEM USD (XE
 * Ask questions/form hypotheses
   * What trends can we see in the data?
   * Does cryptocurrency have a seasonality component?
-  * Are there any months or days of the week we can identify as having significantly higher or lower trade volume? 
+  * Are there any months we can identify as having significantly higher or lower trade volume? 
+  * Are there any days of the week we can identify as having significantly higher or lower trade volume?
 * Create visualizations to help identify patterns
 * Use statistical tests to test hypotheses
 * Document answers to questions and takeaways
