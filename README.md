@@ -33,9 +33,9 @@ The cryptocurrency used in this analysis are HOLO (HOT1-USD) and NEM (XEM-USD). 
 
 * Does cryptocurrency have a seasonality component?
 
-* Are there any months we can identify as having significantly higher or lower trade volume? 
+* Are there any months we can identify as having significantly higher or lower closing prices? 
 
-* Are there any days of the week we can identify as having significantly higher or lower trade volume? 
+* Are there any days of the week we can identify as having significantly higher or lower closing prices? 
 
 
 ## Acquisition
@@ -74,8 +74,8 @@ The cryptocurrency used in this analysis are HOLO (HOT1-USD) and NEM (XEM-USD). 
 * Ask questions/form hypotheses
   * What trends can we see in the data?
   * Does cryptocurrency have a seasonality component?
-  * Are there any months we can identify as having significantly higher or lower trade volume? 
-  * Are there any days of the week we can identify as having significantly higher or lower trade volume?
+  * Are there any months we can identify as having significantly higher or lower closing prices? 
+  * Are there any days of the week we can identify as having significantly higher or lower closing prices?
 * Create visualizations to help identify patterns
 * Use statistical tests to test hypotheses
 * Document answers to questions and takeaways
