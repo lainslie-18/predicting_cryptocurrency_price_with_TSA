@@ -14,18 +14,18 @@ def get_crypto_data():
     '''
     
     # pull in all daily data for XEM-USD
-    nem_usd = yf.download("XEM-USD", period='max')
+    nem = yf.download("XEM-USD", period='max')
+
+    # pull in hourly data since Dec 1, 2021 for XEM-USD
+    nem_hr = yf.download("XEM-USD", start="2021-12-01", end="2022-01-16", interval='1h')
     
     # pull in all daily data for HOT1-USD
-    holo_usd = yf.download('HOT1-USD', period='max')
+    holo = yf.download('HOT1-USD', period='max')
     
     # pull in hourly data since Dec 1, 2021 for XEM-USD
-    nem_usd_hr = yf.download("XEM-USD", start="2021-12-01", end="2022-01-16", interval='1h')
+    holo_hr = yf.download("HOT1-USD", start="2021-12-01", end="2022-01-16", interval='1h')
     
-    # pull in hourly data since Dec 1, 2021 for XEM-USD
-    holo_usd_hr = yf.download("HOT1-USD", start="2021-12-01", end="2022-01-16", interval='1h')
-    
-    return nem_usd, holo_usd, nem_usd_hr, holo_usd_hr
+    return nem, nem_hr, holo, holo_hr
 
 
 # create a function that splits data
@@ -44,3 +44,37 @@ def split_time_series_data(df):
     test = df[validate_end_index : ]
     
     return train, validate, test
+
+
+def split_crypto_data(nem, nem_hr, holo, holo_hr):
+
+    train1, validate1, test1 = split_time_series_data(nem)
+    train2, validate2, test2 = split_time_series_data(nem_hr)
+    train3, validate3, test3 = split_time_series_data(holo)
+    train4, validate4, test4 = split_time_series_data(holo_hr)
+
+    # creates a list of the split dataframes for each ticker symbol
+    crypto1 = [train1, validate1, test1, train2, validate2, test2]
+    crypto2 = [train3, validate3, test3, train4, validate4, test4]
+
+    # creates a list of the two lists
+    cryptocurrencies = [crypto1, crypto2]
+
+    return cryptocurrencies
+
+
+def prep_crypto_data():
+
+    # pull in data
+    nem, nem_hr, holo, holo_hr = get_crypto_data()
+
+    # drop all columns except Close as target variable
+    nem = pd.DataFrame(nem.Close)
+    nem_hr = pd.DataFrame(nem_hr.Close)
+    holo = pd.DataFrame(holo.Close)
+    holo_hr = pd.DataFrame(holo_hr.Close)
+
+    # list of nem_train, nem_validate, nem_test, nem_hr_train, nem_hr_validate, nem_hr_test, holo_train, holo_validate, holo_test, holo_hr_train, holo_hr_validate, holo_hr_test,
+    cryptocurrencies = split_crypto_data(nem, holo, nem_hr, holo_hr)
+
+    return cryptocurrencies
