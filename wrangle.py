@@ -85,7 +85,7 @@ def prep_crypto_data():
     holo_hr = pd.DataFrame(holo_hr.Close)
 
     # list of nem_train, nem_validate, nem_test, nem_hr_train, nem_hr_validate, nem_hr_test, holo_train, holo_validate, holo_test, holo_hr_train, holo_hr_validate, holo_hr_test,
-    cryptocurrencies = split_crypto_data(nem, holo, nem_hr, holo_hr)
+    cryptocurrencies = split_crypto_data(nem, nem_hr, holo, holo_hr)
 
     return cryptocurrencies
 
@@ -108,6 +108,36 @@ def plot_and_eval(train_set, validate_set, yhat, model):
     print(f'{model} RMSE: {rmse}')
     plt.show()
 
+#################
+
+# fig, (ax1, ax2) = plt.subplots(2)
+# ax1.plot(holo_train, label='Train')
+# holo_validate.plot(ax=ax1, label='Validate')
+# holo_test.plot(ax=ax1, label='Test')
+# ax1.set(title='HOLO Daily Closing Price', xlabel='Date', ylabel='Closing Price ($)')
+# ax1.legend(['Train', 'Validate', 'Test'])
+# ax2.plot(holo_hr_train, label='Train')
+# holo_hr_validate.plot(ax=ax2, label='Validate')
+# holo_hr_test.plot(ax=ax2, label='Test')
+# ax2.set(title='HOLO Hourly Closing Price', xlabel='Date', ylabel='Closing Price ($)')
+# ax2.legend(['Train', 'Validate', 'Test'])
+# plt.tight_layout();
+
+# # plot original and predicted values
+# def plot_and_eval(train_set, validate_set, yhat, model):
+#     plt.plot(train_set['Close'], label = 'Train', linewidth = 1)
+#     plt.plot(validate_set['Close'], label = 'Validate', linewidth = 1)
+#     plt.plot(yhat['Close'], label = 'Prediction', linewidth = 1)
+#     plt.title('Actual Closing Price vs ' + model)
+#     plt.legend()
+#     plt.xticks(rotation=45)
+#     rmse = evaluate(validate_set, yhat)
+#     print(f'{model} RMSE: {rmse}')
+#     plt.show()
+
+
+#####################
+
 
 
 def append_eval_df(eval_df, train_set, validate_set, yhat, model):
@@ -128,6 +158,8 @@ def predict_evaluate_baseline(train_set, validate_set, eval_df):
     eval_df = append_eval_df(eval_df, train_set, validate_set, yhat, model)
 
     return eval_df
+
+
 
 
 def predict_evaluate_1yr_mavg(train_set, validate_set, eval_df):
